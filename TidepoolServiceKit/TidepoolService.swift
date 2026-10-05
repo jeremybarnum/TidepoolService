@@ -70,8 +70,8 @@ public final class TidepoolService: Service, TAPIObserver, ObservableObject {
 
     private var lastPumpSettingsDatum: TPumpSettingsDatum?
 
-    private var hostIdentifier: String?
-    private var hostVersion: String?
+    var hostIdentifier: String?
+    var hostVersion: String?
 
     private let log = OSLog(category: "TidepoolService")
     private let tidepoolKitLog = OSLog(category: "TidepoolKit")
@@ -139,6 +139,9 @@ public final class TidepoolService: Service, TAPIObserver, ObservableObject {
     }
 
     public var isOnboarded = false   // No distinction between created and onboarded
+
+    /// Built from another controller's export: its session lives in memory, never the keychain.
+    public internal(set) var isConfiguredByAnotherController = false
     
     public func markAsDepedency(_ isDependency: Bool) {
         self.isDependency = isDependency
@@ -222,7 +225,7 @@ public final class TidepoolService: Service, TAPIObserver, ObservableObject {
         case fetched(String)
     }
 
-    private var dataSetIdCacheStatus: DataSetIdCacheStatus?
+    var dataSetIdCacheStatus: DataSetIdCacheStatus?
 
     private func clearCachedDataSetId() {
         dataSetIdCacheStatus = nil
