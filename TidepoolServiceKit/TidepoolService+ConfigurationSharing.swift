@@ -3,8 +3,11 @@
 //  TidepoolServiceKit
 //
 //  What another controller needs to upload into this user's data set: the session, the host
-//  identity the data set is keyed on, and the data set itself. The session goes without its refresh
-//  token, so only the controller that signed in ever renews it.
+//  identity the data set is keyed on, and the data set itself. The session goes WITH its refresh
+//  token: an access token lives minutes (12 in Tidepool's development realm), a loan lasts hours,
+//  and the other controller may be out of this one's reach. Tidepool's realm does not rotate refresh
+//  tokens (revokeRefreshToken false), so both controllers renew independently without either
+//  invalidating the other's. The other controller never revokes it: its logout only drops the session.
 //
 
 import Foundation
@@ -16,7 +19,7 @@ extension TidepoolService: DeviceConfigurationSharing {
         var state: [String: Any] = [:]
         if let session {
             let shared = TSession(environment: session.environment, accessToken: session.accessToken,
-                                  accessTokenExpiration: session.accessTokenExpiration, refreshToken: nil,
+                                  accessTokenExpiration: session.accessTokenExpiration, refreshToken: session.refreshToken,
                                   userId: session.userId, username: session.username, userRoles: session.userRoles,
                                   trace: session.trace, createdDate: session.createdDate)
             state["session"] = try? JSONEncoder().encode(shared)
