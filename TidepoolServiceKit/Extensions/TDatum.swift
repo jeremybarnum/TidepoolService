@@ -56,7 +56,7 @@ extension TDatum {
     }
 }
 
-extension TDatum: CustomDebugStringConvertible {
+extension TDatum: @retroactive CustomDebugStringConvertible {
     public var debugDescription: String {
         guard let data = try? encoder.encode(self) else {
             return "error: failure to encode datum as data"

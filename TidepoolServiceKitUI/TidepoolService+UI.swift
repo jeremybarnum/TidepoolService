@@ -44,16 +44,16 @@ extension TidepoolService: @retroactive ServiceUI {
 
             let settingsView = await SettingsView(service: service, login: { environment in
 
-                guard let window = await navController.view.window else {
+                guard let window = navController.view.window else {
                     throw TidepoolServiceError.missingWindow
                 }
 
-                let windowContextProvider = await WindowContextProvider(window: window)
+                let windowContextProvider = WindowContextProvider(window: window)
                 let sessionProvider = await ASWebAuthenticationSessionProvider(contextProviding: windowContextProvider)
                 let auth = OAuth2Authenticator(api: service.tapi, environment: environment, sessionProvider: sessionProvider)
                 try await auth.login()
                 try await service.completeCreate()
-                await navController.notifyServiceCreatedAndOnboarded(service)
+                navController.notifyServiceCreatedAndOnboarded(service)
             }, dismiss: {
                 Task {
                     await navController.notifyComplete()
@@ -79,11 +79,11 @@ extension TidepoolService: @retroactive ServiceUI {
         Task {
             let settingsView = await SettingsView(service: self, login: { [weak self] environment in
                 if let self {
-                    guard let window = await navController.view.window else {
+                    guard let window = navController.view.window else {
                         throw TidepoolServiceError.missingWindow
                     }
 
-                    let windowContextProvider = await WindowContextProvider(window: window)
+                    let windowContextProvider = WindowContextProvider(window: window)
                     let sessionProvider = await ASWebAuthenticationSessionProvider(contextProviding: windowContextProvider)
                     let auth = OAuth2Authenticator(api: self.tapi, environment: environment, sessionProvider: sessionProvider)
                     try await auth.login()
