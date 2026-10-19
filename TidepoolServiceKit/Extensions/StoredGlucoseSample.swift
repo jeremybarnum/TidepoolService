@@ -96,6 +96,10 @@ extension StoredGlucoseSample: IdentifiableHKDatum {
         dictionary["uuid"] = uuid?.uuidString
         dictionary["syncIdentifier"] = syncIdentifier
         dictionary["syncVersion"] = syncVersion
+        if isBackfill {
+            dictionary["isBackfill"] = true
+        }
+        dictionary["receivedTime"] = receivedDate.map { ISO8601DateFormatter().string(from: $0) }
         return !dictionary.isEmpty ? dictionary : nil
     }
 }

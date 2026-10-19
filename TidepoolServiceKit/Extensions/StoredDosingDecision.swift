@@ -35,6 +35,7 @@ import TidepoolKit
  - manualBolusRequested            Double?                              TDosingDecisionDatum.requestedBolus
  - warnings                        [Issue]                              TDosingDecisionDatum.warnings
  - errors                          [Issue]                              TDosingDecisionDatum.errors
+ - algorithmExperiments            [AlgorithmExperiment]?               TDosingDecisionDatum.payload["algorithmExperiments"]
  - syncIdentifier                  UUID                                 .id, .origin, .payload["syncIdentifier"]
 
  Notes:
@@ -82,7 +83,7 @@ extension StoredDosingDecision: IdentifiableDatum {
                                timeZone: datumTimeZone,
                                timeZoneOffset: datumTimeZoneOffset,
                                associations: associations,
-                               payload: datumPayload,
+                               payload: datumDosingDecisionPayload,
                                origin: origin)
     }
 
@@ -274,6 +275,12 @@ extension StoredDosingDecision: IdentifiableDatum {
     private var datumPayload: TDictionary {
         var dictionary = TDictionary()
         dictionary["syncIdentifier"] = syncIdentifier.uuidString
+        return dictionary
+    }
+
+    private var datumDosingDecisionPayload: TDictionary {
+        var dictionary = datumPayload
+        dictionary["algorithmExperiments"] = algorithmExperiments?.map { $0.jsonObject }
         return dictionary
     }
 }
