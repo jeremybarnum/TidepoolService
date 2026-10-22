@@ -645,9 +645,10 @@
 				"pt-BR",
 				sv,
 				vi,
-				ce,
 				hu,
 				uk,
+				ko,
+				ar,
 			);
 			mainGroup = A9DAACD522E7978800E76C9F;
 			packageReferences = (

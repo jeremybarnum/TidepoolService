@@ -103,7 +103,7 @@
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sunteți sigur/ă că vreți să ștergeți acest serviciu?"
+            "value" : "Sunteți sigur că vreți să ștergeți acest serviciu?"
           }
         },
         "ru" : {
@@ -246,7 +246,7 @@
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Închide"
+            "value" : "Închideți"
           }
         },
         "ru" : {
@@ -380,7 +380,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Service Verwijderen"
+            "value" : "Service verwijderen"
           }
         },
         "pl" : {
@@ -404,7 +404,7 @@
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Șterge serviciul"
+            "value" : "Ștergeți serviciul"
           }
         },
         "ru" : {
@@ -982,7 +982,7 @@
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Revocare jeton"
+            "value" : "Revocați cheie"
           }
         },
         "ru" : {
@@ -1125,7 +1125,7 @@
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nu ești autentificat/ă."
+            "value" : "Nu sunteți autentificat."
           }
         },
         "ru" : {

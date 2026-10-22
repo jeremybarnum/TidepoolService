@@ -103,7 +103,7 @@
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Eroare de configurare"
+            "value" : "Eroare configurare"
           }
         },
         "ru" : {
@@ -222,7 +222,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ontbrekende Gegevensset Id"
+            "value" : "Ontbrekende gegevensset ID"
           }
         },
         "pl" : {
@@ -377,7 +377,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ok"
+            "value" : "OK"
           }
         },
         "pl" : {
@@ -669,7 +669,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tidepool Service Autorisatie"
+            "value" : "Tidepool service autorisatie"
           }
         },
         "pl" : {
